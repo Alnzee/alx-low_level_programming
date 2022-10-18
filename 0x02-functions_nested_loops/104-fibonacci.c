@@ -1,28 +1,53 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
+
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
+  * print_times_table - Prints a multiplication table up to param
+  * @n: The number to be treated
+  *
+  * Return: Number matrix
+  */
+void print_times_table(int n)
 {
-	int i = 0;
-	long j = 1, k = 2, sum = k;
+	int x, y, z;
 
-	while (k + j < 4000000)
+	if (n >= 0 && n <= 14)
 	{
-		k += j;
-
-		if (k % 2 == 0)
-			sum += k;
-
-		j = k - j;
-
-		++i;
+		for (x = 0; x <= n; x++)
+		{
+			for (y = 0; y <= n; y++)
+			{
+				z = x * y;
+				if (z > 99)
+				{
+					_putchar(',');
+					_putchar(32);
+					_putchar((z / 100) + '0');
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
+				}
+				else if (z > 9)
+				{
+					_putchar(',');
+					_putchar(32);
+					_putchar(32);
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
+				}
+				else
+				{
+					if (y != 0)
+					{
+						_putchar(',');
+						_putchar(32);
+						_putchar(32);
+						_putchar(32);
+					}
+					_putchar(z + '0');
+				}
+			}
+			_putchar('\n');
+		}
 	}
-
-	printf("%ld\n", sum);
-	return (0);
 }
