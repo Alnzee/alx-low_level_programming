@@ -1,21 +1,3 @@
-
-Sign up
-dennisnderitu254
-/
-alx-low_level_programming
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-alx-low_level_programming/0x07-pointers_arrays_strings/main.h
-@dennisnderitu254
-dennisnderitu254 Adding main file, project Header file and _putchar function
- 1 contributor
-25 lines (21 sloc)  656 Bytes
 #ifndef MAIN_H
 #define MAIN_H
 

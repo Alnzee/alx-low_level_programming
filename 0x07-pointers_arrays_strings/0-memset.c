@@ -1,26 +1,3 @@
-
-Sign up
-dennisnderitu254
-/
-alx-low_level_programming
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-alx-low_level_programming/0x07-pointers_arrays_strings/0-memset.c
-@dennisnderitu254
-dennisnderitu254 function that fills memory with a constant byte
- 1 contributor
-26 lines (23 sloc)  380 Bytes
-/*
- * File: 0-memset.c
- * Auth: not
- */
-
 #include "main.h"
 
 /**
@@ -35,10 +12,9 @@ dennisnderitu254 function that fills memory with a constant byte
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	while (n)
-	{
-		s[n - 1] = b;
-		n--;
-	}
+	char *ptr = s;
+
+	while (n-- > 0)
+		*ptr++ = b;
 	return (s);
 }
