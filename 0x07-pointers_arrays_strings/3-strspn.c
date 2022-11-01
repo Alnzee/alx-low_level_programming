@@ -9,14 +9,22 @@
 *
 *Return: returns pointer to first occcurence of c
 */
-char *_strchr(char *s, char c)
+unsigned int _strspn(char *s, char *accept)
 {
-	int i;
+	int i = 0;
+	int j = 0;
 
-	for (i = 0; (s[i] != c) && (s[i] != '\0'); i++)
-		;
-	if (s[i] == c)
-		return (s + i);
-	else
-		return (NULL);
+	for (; s[i]; i++)
+	{
+		 for (j = 0; accept[j]; j++)
+		 {
+			 if (s[i] == accept[j])
+			 {
+				 break;
+			 }
+		 }
+		 if (s[i] != accept[j])
+			 break;
+	}
+	return (i);
 }
