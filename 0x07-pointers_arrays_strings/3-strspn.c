@@ -1,30 +1,32 @@
 #include "main.h"
+
 /**
-*_strchr - Returns a pointer to the first occurrence
-*of the character c in the string s, or NULL if the
-*character is not found
-*
-*@s:string targeted
-*@c:character targeted
-*
-*Return: returns pointer to first occcurence of c
-*/
+  * _strspn - search a string for a set of bytes
+  * @s: source string
+  * @accept: accepted string
+  *
+  * Return: number of bytes in the init segment
+  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int i = 0;
-	int j = 0;
+	unsigned int a = 0, b, t = 0;
 
-	for (; s[i]; i++)
+	while (accept[a])
 	{
-		 for (j = 0; accept[j]; j++)
-		 {
-			 if (s[i] == accept[j])
-			 {
-				 break;
-			 }
-		 }
-		 if (s[i] != accept[j])
-			 break;
+		b = 0;
+
+		while (s[b] != 32)
+		{
+			if (accept[a] == s[b])
+			{
+				t++;
+			}
+
+			b++;
+		}
+
+		a++;
 	}
-	return (i);
+
+	return (t);
 }
