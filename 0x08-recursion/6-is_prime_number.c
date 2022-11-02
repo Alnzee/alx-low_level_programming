@@ -1,57 +1,32 @@
 #include "main.h"
+/**
+* is_prime_number - returns true if the number is prime
+*@n: the number to check
+*
+*Return: true if the number is prime
+*/
+int is_prime_number(int n)
+{
+	int start = n / 2;
 
-int check_palindrome(char *s);
+	if (n <= 1)
+		return (0);
+	return (is_prime(n, start));
+}
 
 /**
-  * is_palindrome - Returns if a string is palindrome
-  * @s: the string value to be checked
-  *
-  * Return: integer value
-  */
-int is_palindrome(char *s)
+* is_prime - returns the 1 if n is prime
+* @n: number to be checked
+* @start: number to start checking from
+*
+* Return: 1 if n is prime, 0 otherwise
+*/
+
+int is_prime(int n, int start)
 {
-	if (*s == '0')
+	if (start <= 1)
 		return (1);
-
-	return (check_palindrome(s));
-}
-
-/**
-  * check_palindrome - Check if a string is palindrome
-  * @s: the string value to be checked
-  *
-  * Return: integer value
-  */
-int check_palindrome(char *s)
-{
-	int l = _strlen_recursion(s) - 1;
-
-	if (*s == s[l])
-	{
-		s++;
-		l--;
-	}
-	else
-	{
+	else if (n % start == 0)
 		return (0);
-	}
-
-	return (1);
-}
-
-/**
-  * _strlen_recursion - Get the length of a string
-  * @s: the string to get the length
-  *
-  * Return: the string length
-  */
-int _strlen_recursion(char *s)
-{
-	if (*s == '\0')
-	{
-		return (0);
-	}
-
-	s++;
-	return (_strlen_recursion(s) + 1);
+	return (is_prime(n, start - 1));
 }
